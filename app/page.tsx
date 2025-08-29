@@ -1,3 +1,4 @@
+import NavBar from "./components/NavBar";
 
 
  const Home =()=> {
@@ -6,6 +7,7 @@
     <div>
       Portfolio develop 3D 
     </div>
+    <NavBar/>
     </>
    
   );
