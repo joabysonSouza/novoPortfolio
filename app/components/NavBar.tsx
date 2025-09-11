@@ -1,30 +1,52 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import { navLinks } from "../constants/index";
+import { CiMenuFries } from "react-icons/ci";
 import logo from "../../public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
 const NavBar = () => {
+  const [active, setActive] = useState("");
+  const [toggleMenu, setToggleMenu] = useState(false);
   return (
     <div className=" w-full bg-gray-950 ">
-      <nav className="flex ">
+      <nav className="flex relative ">
         <Link
           className=" w-full  flex  gap-4  items-center  text-3xl"
           href={"/"}
         >
           <Image alt="logo" src={logo} width={100} height={100} />
-          <span>Joabyson | Develop</span>
+          <span className="text-xl">Joabyson | Develop</span>
         </Link>
 
-        
-          <ul className=" w-full flex justify-between mr-20  p-3 text-xl font-extrabold ">
+        <div className="flex justify-center items-center p-4 md:hidden">
+          <CiMenuFries
+            color="white"
+            className="text-6xl"
+            onClick={() => {
+              setToggleMenu(!toggleMenu);
+            }}
+          />
+        </div>
+
+        {toggleMenu && (
+          <div
+            className=" w-32 p-5 gap-4 absolute right- 60 left-64 flex top-24  rounded-2xl justify-center items-start   flex-col  bg-gray-900   md:hidden"
+            onClick={() => setToggleMenu(false)}
+          >
+            
             {navLinks.map((link) => (
-              <li key={link.id} >
-                <a href={link.href}>{link.label}</a>
-              </li>
+              <ul key={link.id}>
+                <li >
+                  <a href={link.href}>{link.label}</a>
+                </li>
+                  </ul>
             ))}
-          </ul>
-      
+          </div>
+        )}
+
+        
       </nav>
     </div>
   );
