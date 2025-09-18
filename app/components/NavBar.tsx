@@ -46,6 +46,17 @@ const NavBar = () => {
           </div>
         )}
 
+        <div className=" hidden md:flex w-full  justify-between items-center mr-7  ">
+          {navLinks.map((link) => (
+              <ul key={link.id} className="">
+                <li >
+                  <a href={link.href}>{link.label}</a>
+                </li>
+                  </ul>
+            ))}
+
+        </div>
+
         
       </nav>
     </div>
