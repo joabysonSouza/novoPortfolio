@@ -1,14 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Poppins } from "next/font/google";
+import {Poppins, Anton} from "next/font/google"
 import "./globals.css";
+import NavBar from "./components/NavBar";
 
 
 
 const PoppinsSans = Poppins({
   variable: "--font-poppins-sans",
   subsets:["latin"],
-  weight: ["100", "200", "300"]
+  weight: ["100" , "200", "300" , "400", "500", "600", "700"]
 })
+
+
+
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400", // só existe esse peso, mas já é bold
+  variable: "--font-anton",
+});
 
 
 export const metadata: Metadata = {
@@ -23,9 +32,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${PoppinsSans.variable}  antialiased`}
-      >
+     <body className={`${PoppinsSans.variable} ${anton.variable} antialiased`}>
+
+          <NavBar/>
         {children}
       </body>
     </html>
