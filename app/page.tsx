@@ -4,13 +4,13 @@ import NavBar from "./components/NavBar";
 const Home = () => {
   return (
     <>
-      <div className="w-full h-screen flex flex-col items-center justify-center md:flex-row ">
-        <div className=" w-full m-auto p-4 text-center ">
+      <div className="w-96 m-6 text-center h-screen flex flex-col  md:w-full md:flex-row md:items-center ">
+        <div>
           <h1 className=" font-anton  text-white text-3xl md:text-7xl">
             Olá eu sou <span className="text-red-600">Joabyson</span>
           </h1>
 
-          <p className="w-96">
+          <p className="">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
             reprehenderit repudiandae
           </p>
