@@ -3,7 +3,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-function Computer({scale}: {scale: number}) {
+function Computer({ scale }: { scale: number }) {
   const { scene } = useGLTF("/image/Teste.glb");
   return (
     <group scale={scale} position={[0, -1, 0]} rotation={[0, Math.PI, 0]}>
@@ -12,47 +12,49 @@ function Computer({scale}: {scale: number}) {
   );
 }
 
-// TODO tentando fazer a imagem ficar na frente da div 
+// TODO tentando fazer a imagem ficar na frente da div
 
 export default function Scene() {
-   const [windowWidth, setWindowWidth] = useState<number>(typeof window !== "undefined" ? window.innerWidth : 0);
+  const [windowWidth, setWindowWidth] = useState<number>(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
   const [scale, setScale] = useState(0.8);
 
-  useEffect(()=>{
+  useEffect(() => {
+    const handleSize = () => {
+      setWindowWidth(window.innerWidth);
 
-    const handleSize =()=>{
-      setWindowWidth(window.innerWidth)
-
-       if (window.innerWidth < 765) {
-        setScale(0.35); // mobile
+      if (window.innerWidth < 765) {
+        setScale(0.75); // mobile
       } else if (window.innerWidth < 1024) {
-        setScale(0.45); // tablet
+        setScale(0.75); // tablet
       } else {
         setScale(0.75); // desktop
       }
-  
-    }
-    handleSize()
-    window.addEventListener("resize", handleSize)
+    };
+    handleSize();
+    window.addEventListener("resize", handleSize);
     return () => window.removeEventListener("resize", handleSize);
-  },[])
-  
+  }, []);
+
   return (
-
-<div className="w-full h-full md:w-96 md:h-56">
-     <Canvas camera={{ position: [-8, 2, 4], fov: 50 }} >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[3, 3, 3]} />
-      <Suspense fallback={null}>
-        <Computer scale={scale} />
-      </Suspense>
-      <OrbitControls minDistance={3} maxDistance={20} />
-    </Canvas>
-
-
-</div>
-
-   
-
+    <div className=" relative w-full h-[250px] pointer-events-auto md:h-full ">
+      <Canvas
+        camera={{ position: [-8, 2, 4], fov: 50 }}
+        style={{ touchAction: "none" }}
+      >
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[3, 3, 3]} />
+        <Suspense fallback={null}>
+          <Computer scale={scale} />
+        </Suspense>
+        <OrbitControls
+          enableZoom={false}
+          enablePan={false}
+          minDistance={3}
+          maxDistance={20}
+        />
+      </Canvas>
+    </div>
   );
 }
