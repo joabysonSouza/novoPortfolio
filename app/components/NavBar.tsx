@@ -10,7 +10,7 @@ const NavBar = () => {
   const [active, setActive] = useState("");
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
-    <div className=" w-full bg-gray-950 ">
+    <div className=" w-screen bg-gray-950 fixed top-0 z-50 mb-60">
       <nav className="flex relative ">
         <Link
           className=" w-full  flex  gap-4  items-center  text-3xl"
