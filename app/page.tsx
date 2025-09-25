@@ -1,5 +1,6 @@
 import Scene from "./components/Computer";
 import NavBar from "./components/NavBar";
+import About from "./components/About";
 
 const Home = () => {
   return (
@@ -17,6 +18,10 @@ const Home = () => {
         </div>
 
         <Scene />
+      </div>
+      <div>
+        <About/>
+      
       </div>
     </>
   );
