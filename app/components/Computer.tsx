@@ -1,10 +1,13 @@
 "use client";
 import React, { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
+import * as THREE from "three";
+import { Canvas, useLoader } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import { MeshBasicMaterial } from "three";
 
 function Computer({ scale }: { scale: number }) {
   const { scene } = useGLTF("/image/Teste.glb");
+ 
   return (
     <group scale={scale} position={[0, -1, 0]} rotation={[0, Math.PI, 0]}>
       <primitive object={scene} />
