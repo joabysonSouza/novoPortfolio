@@ -10,13 +10,13 @@ const NavBar = () => {
   const [active, setActive] = useState("");
   const [toggleMenu, setToggleMenu] = useState(false);
   return (
-    <div className=" w-screen bg-gray-950 fixed top-0 z-50 mb-60">
+    <div className=" w-full bg-nav p-10 fixed top-0 z-50 mb-60">
       <nav className="flex relative ">
         <Link
           className=" w-full  flex  gap-4  items-center  text-3xl"
           href={"/"}
         >
-          <Image alt="logo" src={logo} width={100} height={100} />
+          {/* <Image alt="logo" src={logo} width={100} height={100} /> */}
           <span className="text-xl">Joabyson | Develop</span>
         </Link>
 
@@ -46,7 +46,7 @@ const NavBar = () => {
           </div>
         )}
 
-        <div className=" hidden md:flex w-full  justify-between items-center mr-7  ">
+        <div className=" hidden md:flex w-full  justify-between items-center   ">
           {navLinks.map((link) => (
               <ul key={link.id} className="">
                 <li >
