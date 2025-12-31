@@ -3,14 +3,14 @@ import Cards from "./Cards";
 
 export default function Sobre() {
   return (
-    <div className="w-screen h-screen  bg-Bgblack">
+    <div className="w-full  h-auto  bg-Bgblack mb-4">
       <p className="text-2xl p-6">Introdução</p>
       <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
         {" "}
         Visão Geral.{" "}
       </h2>
 
-      <p className=" mx-4 text-wihte">
+      <p className=" text-wihte mx-8">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a dicta
         exercitationem odit, et rerum, ad ullam aliquid ipsa repudiandae placeat
         laboriosam, inventore earum. Incidunt labore blanditiis quaerat
@@ -19,6 +19,8 @@ export default function Sobre() {
         delectus possimus fugit natus ipsum optio veritatis aut eos maxime!
         Libero, voluptatum.
       </p>
+
+      
 
       <Cards/>
     </div>
