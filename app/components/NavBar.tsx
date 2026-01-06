@@ -32,7 +32,7 @@ const NavBar = () => {
 
         {toggleMenu && (
           <div
-            className=" w-32 p-5 gap-4 absolute right- 60 left-64 flex top-24  rounded-2xl justify-center items-start   flex-col  bg-gray-900   md:hidden"
+            className=" w-32 p-5 gap-4 absolute right-60 left-56 flex top-24  rounded-2xl justify-center items-start   flex-col  bg-gray-900   md:hidden"
             onClick={() => setToggleMenu(false)}
           >
             
