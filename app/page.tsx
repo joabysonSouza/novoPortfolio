@@ -1,6 +1,7 @@
 import Scene from "./components/Computer";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
+import Works from "./components/Works";
 
 const Home = () => {
   return (
@@ -19,10 +20,10 @@ const Home = () => {
 
         <Scene />
       </div>
-      <div>
-        <About/>
       
-      </div>
+        <About/>
+        <Works /> 
+     
     </>
   );
 };
