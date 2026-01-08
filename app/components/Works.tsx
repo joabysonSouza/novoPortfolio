@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import fadeIn from "../constants/animation";
-import { container } from "../constants";
+import { container, projects } from "../constants";
 
 // { nameProject , image , description, code_link, tags, index}: projectsProps
 
@@ -11,21 +11,23 @@ interface projectsProps {
   image: string;
   description: string;
   code_link: string;
-  tags: string[];
+  tags?: string[];
   index: number;
 }
 
 // TODO Mapear e construir os projects Cards
 
 export default function Works() {
-  const Projects = () => {
+  const ProjectCards = ({ nameProject , image , description, code_link, tags, index}: projectsProps) => {
     return (
       <motion.div
   className="w-64 h-40 bg-amber-50 m-8 rounded-xl flex items-center justify-center "
   variants={fadeIn}
+    whileHover={{scale: 1.3}}
   
 >
-  Card
+  <h3 className="text-black">{nameProject}</h3>
+  
 </motion.div>
 
     );
@@ -55,9 +57,21 @@ export default function Works() {
   whileInView="show"
   viewport={{ once: true, amount: 0.3 }}
 >
-  <Projects />
-  <Projects />
-  <Projects />
+{projects.map((project , index)=>(
+  <ProjectCards
+   nameProject={project.nameproject}
+   code_link={project.code_link}
+   description={project.description}
+   image={project.image}
+   index={index}
+   key={index}
+
+  />
+
+
+))}
+  
+
   </motion.div>
       
 
