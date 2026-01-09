@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import fadeIn from "../constants/animation";
 import { container, projects } from "../constants";
+import Image from "next/image";
+import { image } from "framer-motion/client";
 
 // { nameProject , image , description, code_link, tags, index}: projectsProps
 
@@ -16,20 +18,31 @@ interface projectsProps {
 }
 
 // TODO Mapear e construir os projects Cards
+// TODO Fazer um modal para abrir a image em tela cheia
 
 export default function Works() {
-  const ProjectCards = ({ nameProject , image , description, code_link, tags, index}: projectsProps) => {
+  const ProjectCards = ({
+    nameProject,
+    image,
+    description,
+    code_link,
+    tags,
+    index,
+  }: projectsProps) => {
     return (
       <motion.div
-  className="w-64 h-40 bg-amber-50 m-8 rounded-xl flex items-center justify-center "
-  variants={fadeIn}
-    whileHover={{scale: 1.3}}
-  
->
-  <h3 className="text-black">{nameProject}</h3>
-  
-</motion.div>
-
+        className="w-[400px] h-[250px] bg-amber-50 m-8 rounded-xl flex items-center relative overflow-hidden justify-center hover:cursor-pointer"
+        variants={fadeIn}
+        whileHover={{ scale: 1.2 }}
+      >
+        <Image
+          src={image}
+          alt="Aquila"
+          fill
+          className="w-full h-full object-cover"
+          
+        />
+      </motion.div>
     );
   };
   return (
@@ -50,34 +63,24 @@ export default function Works() {
         Libero, voluptatum.
       </p>
 
-<motion.div
-  className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8"
-  variants={container}
-  initial="hidden"
-  whileInView="show"
-  viewport={{ once: true, amount: 0.3 }}
->
-{projects.map((project , index)=>(
-  <ProjectCards
-   nameProject={project.nameproject}
-   code_link={project.code_link}
-   description={project.description}
-   image={project.image}
-   index={index}
-   key={index}
-
-  />
-
-
-))}
-  
-
-  </motion.div>
-      
-
-     
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {projects.map((project, index) => (
+          <ProjectCards
+            nameProject={project.nameproject}
+            code_link={project.code_link}
+            description={project.description}
+            image={project.image}
+            index={index}
+            key={index}
+          />
+        ))}
+      </motion.div>
     </div>
   );
 }
-
-
