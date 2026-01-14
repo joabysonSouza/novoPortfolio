@@ -1,44 +1,43 @@
 "use client";
-import React, { Suspense, useEffect, useState } from "react";
-import * as THREE from "three";
-import { Canvas, useLoader } from "@react-three/fiber";
+import React, { memo, Suspense, useEffect, useState } from "react";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-import { MeshBasicMaterial } from "three";
 
-function Computer({ scale }: { scale: number }) {
+
+const Computer = memo(({ scale }: { scale: number }) => {
   const { scene } = useGLTF("/image/Teste.glb");
- 
   return (
     <group scale={scale} position={[0, -1, 0]} rotation={[0, Math.PI, 0]}>
       <primitive object={scene} />
     </group>
   );
-}
+});
 
-// TODO tentando fazer a imagem ficar na frente da div
+useGLTF.preload("/image/Teste.glb");
 
 export default function Scene() {
-  const [windowWidth, setWindowWidth] = useState<number>(
-    typeof window !== "undefined" ? window.innerWidth : 0
-  );
-  const [scale, setScale] = useState(0.8);
+  const [scale, setScale] = useState(0.75);
 
   useEffect(() => {
-    const handleSize = () => {
-      setWindowWidth(window.innerWidth);
+    const mobile = window.matchMedia("(max-width: 764px)");
+    const tablet = window.matchMedia("(max-width: 1023px)");
 
-      if (window.innerWidth < 765) {
-        setScale(0.75); // mobile
-      } else if (window.innerWidth < 1024) {
-        setScale(0.75); // tablet
-      } else {
-        setScale(0.75); // desktop
-      }
+    const updateScale = () => {
+      if (mobile.matches) setScale(0.6);
+      else if (tablet.matches) setScale(0.7);
+      else setScale(0.8);
     };
-    handleSize();
-    window.addEventListener("resize", handleSize);
-    return () => window.removeEventListener("resize", handleSize);
+
+    updateScale();
+    mobile.addEventListener("change", updateScale);
+    tablet.addEventListener("change", updateScale);
+
+    return () => {
+      mobile.removeEventListener("change", updateScale);
+      tablet.removeEventListener("change", updateScale);
+    };
   }, []);
+
 
   return (
     <div className=" relative w-full h-[250px] pointer-events-auto md:h-full ">
@@ -48,7 +47,7 @@ export default function Scene() {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[3, 3, 3]} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<div className="text-sm opacity-50">Carregando 3D…</div>}>
           <Computer scale={scale} />
         </Suspense>
         <OrbitControls
