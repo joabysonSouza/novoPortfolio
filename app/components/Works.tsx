@@ -2,18 +2,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import fadeIn from "../constants/animation";
-import { container, projects } from "../constants";
+import { projects } from "../constants";
 import Image from "next/image";
-import { div, image } from "framer-motion/client";
-import ProjectCard from "./ProjectCard";
+import { SiGithub } from "react-icons/si";
 
-// TODO Fazer um modal para abrir a image em tela cheia
+// TODO fazer o card ter o efeito de fadeIn não a imagem concerta as tags e cores dela
 
 export default function Works() {
   const [openImage, setOpenImage] = useState<string | null>(null);
 
   return (
-    <div className="w-full  h-screen  bg-Bgblack mb-4">
+    <div className="w-full  min-h-auto mb-8 bg-Bgblack ">
       <p className="text-2xl p-6">Meus Trabalhos</p>
       <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
         {" "}
@@ -32,66 +31,84 @@ export default function Works() {
 
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4"
-        variants={container}
+        variants={fadeIn}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
       >
         {projects.map((project, index) => (
-          <motion.div
-            className="w-[400px] h-[250px] bg-amber-50 mr-14 rounded-xl flex items-center relative overflow-hidden justify-center hover:cursor-pointer"
-            variants={fadeIn}
-            whileHover={{ scale: 1.2 }}
-            onClick={() => setOpenImage(project.image)}
-            key={index}
+          <div
+            className="w-96 h-full justify-center bg-zinc-900  rounded-xl "
+            key={project.nameproject}
           >
-            <Image
-              src={project.image}
-              alt={project.nameproject}
-              fill
-              className="object-cover"
-            />
-    <div className="absolute bottom-0 w-full bg-black/70 p-4">
-        <h3 className="text-white text-xl">
-          {project.nameproject}
-        </h3>
-        <p className="text-gray-300 text-sm">
-          {project
-          
-          
-          .description}
-        </p>
-      </div>
-         
-          </motion.div>
-          
+            <motion.div
+              className="w-[350px] h-[250px] rounded-xl ml-3 mt-3 flex items-center relative overflow-hidden justify-center hover:cursor-pointer i"
+              onClick={() => setOpenImage(project.image)}
+              key={index}
+            >
+              <a
+                href={project.code_link}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()} 
+                className="absolute top-3 right-3 z-10"
+              >
+                <SiGithub size={50} className="text-3xl text-white bg-black/60 p-2 rounded-full hover:scale-110 transition" />
+              </a>
+              <Image
+                src={project.image}
+                alt={project.nameproject}
+                fill
+                className=" w-full h-full object-cover "
+              />
+            </motion.div>
+            <div>
+              <h3 className="text-3xl font-bold">{project.nameproject}</h3>
+              <p className=" text-start mx-1.5">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Doloribus, provident exercitationem aliquid nobis nam
+                voluptatibus debitis consectetur, dignissimos quia esse
+                reprehenderit corporis laudantium quibusdam
+              </p>
+              <div className="flex flex-wrap gap-3 mt-3">
+                {project.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className={`text-sm px-3 py-1 rounded-full ${tag.className} text-white`}
+                  >
+                    #{tag.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         ))}
       </motion.div>
 
-       {/* MODAL FULLSCREEN */}
-    {openImage && (
-      <motion.div
-        className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
-        onPointerDown={() => setOpenImage(null)}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-      >
+      {/* MODAL FULLSCREEN */}
+      {openImage && (
         <motion.div
-          className="relative w-[90vw] h-[90vh]"
-          initial={{ scale: 0.8 }}
-          animate={{ scale: 1 }}
-          onClick={(e) => e.stopPropagation()} // evita fechar ao clicar na imagem
+          className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
+          onPointerDown={() => setOpenImage(null)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
         >
-          <Image
-            src={openImage}
-            alt="Imagem ampliada"
-            fill
-            className="object-contain"
-          />
+          <motion.div
+            className="relative w-[90vw] h-[90vh]"
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            onClick={(e) => e.stopPropagation()} // evita fechar ao clicar na imagem
+          >
+            <Image
+              src={openImage}
+              alt="Imagem ampliada"
+              fill
+              className="object-contain"
+            />
+          </motion.div>
         </motion.div>
-      </motion.div>
-    )}
+      )}
     </div>
   );
 }
