@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import { skills } from "../constants/index"; // importa a constante
+import  skills  from "../constants/skills"; // importa a constante
 
 export default function Cards() {
+
   const container = {
     hidden: { opacity: 0 },
     show: {

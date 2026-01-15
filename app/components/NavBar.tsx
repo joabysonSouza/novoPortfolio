@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { navLinks } from "../constants/index";
+import navLinks  from "../constants/navLinks";
 import { CiMenuFries } from "react-icons/ci";
 import logo from "../../public/logo.png";
 import Image from "next/image";
