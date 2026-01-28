@@ -2,6 +2,7 @@ import Scene from "./components/Computer";
 import NavBar from "./components/NavBar";
 import About from "./components/About";
 import Works from "./components/Works";
+import Contact from "./components/Contact";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       
         <About/>
         <Works /> 
+        <Contact/>
      
     </>
   );
