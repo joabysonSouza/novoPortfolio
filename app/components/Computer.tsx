@@ -47,7 +47,7 @@ export default function Scene() {
       >
         <ambientLight intensity={0.5} />
         <directionalLight position={[3, 3, 3]} />
-        <Suspense fallback={<div className="text-sm opacity-50">Carregando 3D…</div>}>
+        <Suspense fallback={null}>
           <Computer scale={scale} />
         </Suspense>
         <OrbitControls
