@@ -1,33 +1,31 @@
-"use client";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment, useGLTF } from "@react-three/drei";
-
+import { OrbitControls,  useGLTF } from "@react-three/drei";
+import { useMemo } from "react";
 
 export default function Earth() {
-   const  PlanetModel =(props: any)=> {
-  const { scene } = useGLTF("/image/planet_earth.glb");
+  const PlanetModel = (props: any) => {
+    const { scene } = useGLTF("/image/planet_earth.glb");
 
-  return <primitive object={scene} {...props} />;
-}
+    return <primitive object={scene} {...props} />;
+  };
+
+  const positionCamera = useMemo(
+    () => [0, 1.5, 4] as [number, number, number],
+    [],
+  );
+
+  const position = useMemo(() => [5, 5, 5] as [number, number, number], []);
   return (
     <div className="w-full  h-full rounded-xl overflow-hidden">
-      <Canvas camera={{ position: [0, 1.5, 4], fov: 45 }}>
-      
+      <Canvas camera={{ position: positionCamera, fov: 45 }} frameloop="demand">
         <ambientLight intensity={0.8} />
-        <directionalLight position={[5, 5, 5]} intensity={1.5} />
+        <directionalLight position={position} intensity={1.5} />
 
-     
         <PlanetModel scale={0.4} />
 
-       
-        <OrbitControls
-          enableZoom={false}
-          autoRotate
-          autoRotateSpeed={0.4}
-        />
+        <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.4} />
 
-    
-        <Environment preset="city" />
+        {/* <Environment preset="city" /> */}
       </Canvas>
     </div>
   );
