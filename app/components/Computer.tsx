@@ -1,23 +1,30 @@
 "use client";
-import React, { memo, Suspense, useEffect, useState } from "react";
+import React, { memo, Suspense, useEffect, useMemo, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Loader } from "../hooks/Loader";
 
 
 const Computer = memo(({ scale }: { scale: number }) => {
   const { scene } = useGLTF("/image/Teste.glb");
+
+const position = useMemo(()=> [0, -1, 0] as [number , number , number] ,[])
+
+const rotation = useMemo(()=> [0, Math.PI, 0] as [number , number , number] ,[])
+
   return (
-    <group scale={scale} position={[0, -1, 0]} rotation={[0, Math.PI, 0]}>
+    <group scale={scale} position={position} rotation={rotation}>
       <primitive object={scene} />
     </group>
   );
 });
 
-useGLTF.preload("/image/Teste.glb");
+
+
+ useGLTF.preload("/image/Teste.glb");
 
 export default function Scene() {
   const [scale, setScale] = useState(0.75);
-
   useEffect(() => {
     const mobile = window.matchMedia("(max-width: 764px)");
     const tablet = window.matchMedia("(max-width: 1023px)");
@@ -40,14 +47,18 @@ export default function Scene() {
 
 
   return (
-    <div className=" relative w-full h-[250px] pointer-events-auto md:h-full ">
+    <div className=" relative w-full h-62.5 pointer-events-auto cursor-pointer md:h-full ">
+      
       <Canvas
+       frameloop="demand"
         camera={{ position: [-8, 2, 4], fov: 50 }}
         style={{ touchAction: "none" }}
+
       >
+      
         <ambientLight intensity={0.5} />
         <directionalLight position={[3, 3, 3]} />
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader/>}>
           <Computer scale={scale} />
         </Suspense>
         <OrbitControls
