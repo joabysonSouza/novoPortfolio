@@ -6,7 +6,6 @@ import  projects  from "../constants/projects";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
 
-// TODO fazer o card ter o efeito de fadeIn não a imagem concerta as tags e cores dela
 
 export default function Works() {
   const [openImage, setOpenImage] = useState<string | null>(null);
