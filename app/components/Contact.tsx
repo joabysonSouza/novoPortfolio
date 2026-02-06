@@ -99,10 +99,8 @@ export default function Contact() {
             >
               {loading ? "Enviando" : "Enviar"}
             </button>
-          <p className="bg-green-400">{success && "Email enviado com Sucesso"}</p>
+          <p className="w-full text-2xl text-green-400 rounded-2xl p-2.5">{success && "Email enviado com Sucesso"}</p>
 
-            <button className=" m-20 bg-green-300" onClick={()=>{console.log(process.env.RESEND_API_KEY);
-            }}>chamar</button>
           </form>
         </div>
       </div>
