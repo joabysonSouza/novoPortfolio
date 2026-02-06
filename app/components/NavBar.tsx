@@ -1,63 +1,79 @@
 "use client";
-import React, { useState } from "react";
-import navLinks  from "../constants/navLinks";
+import React, { useEffect, useState } from "react";
+import navLinks from "../constants/navLinks";
 import { CiMenuFries } from "react-icons/ci";
-import logo from "../../public/logo.png";
-import Image from "next/image";
 import Link from "next/link";
 
 const NavBar = () => {
-  const [active, setActive] = useState("");
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < 50) {
+        setShowNav(true);
+      } else if (currentScrollY > lastScrollY) {
+        setShowNav(false);
+      } else {
+        setShowNav(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   return (
-    <div className=" w-full bg-nav p-10 fixed top-0 z-50 mb-60">
-      <nav className="flex relative ">
-        <Link
-          className=" w-full  flex  gap-4  items-center  text-3xl"
-          href={"/"}
-        >
-          {/* <Image alt="logo" src={logo} width={100} height={100} /> */}
-          <span className="text-xl">Joabyson | Develop</span>
+    <div
+      className={`w-full bg-nav2 p-10 fixed top-0 z-50 transition-transform duration-300 ease-in-out
+      ${showNav ? "translate-y-0" : "-translate-y-full"}`}
+    >
+      <nav className="flex relative">
+        <Link className="w-full flex gap-4 items-center text-3xl" href="/">
+          <span className="text-xl font-bold text-red-500">
+            Joabyson | Develop
+          </span>
         </Link>
 
+        {/* Mobile menu icon */}
         <div className="flex justify-center items-center p-4 md:hidden">
           <CiMenuFries
             color="white"
-            className="text-6xl"
-            onClick={() => {
-              setToggleMenu(!toggleMenu);
-            }}
+            className="text-6xl cursor-pointer"
+            onClick={() => setToggleMenu(!toggleMenu)}
           />
         </div>
 
+        {/* Mobile menu */}
         {toggleMenu && (
           <div
-            className=" w-32 p-5 gap-4 absolute right-60 left-56 flex top-24  rounded-2xl justify-center items-start   flex-col  bg-gray-900   md:hidden"
+            className="w-32 p-5 gap-4 absolute right-10 top-24 rounded-2xl flex flex-col bg-gray-900 md:hidden"
             onClick={() => setToggleMenu(false)}
           >
-            
             {navLinks.map((link) => (
-              <ul key={link.id}>
-                <li >
-                  <a href={link.href}>{link.label}</a>
-                </li>
-                  </ul>
+              <a key={link.id} href={link.href}>
+                {link.label}
+              </a>
             ))}
           </div>
         )}
 
-        <div className=" hidden md:flex w-full  justify-between items-center   ">
+        {/* Desktop menu */}
+        <div className="hidden md:flex w-full font-bold justify-between items-center">
           {navLinks.map((link) => (
-              <ul key={link.id} className="">
-                <li >
-                  <a href={link.href}>{link.label}</a>
-                </li>
-                  </ul>
-            ))}
-
+            <a key={link.id} href={link.href}>
+              {link.label}
+            </a>
+          ))}
         </div>
-
-        
       </nav>
     </div>
   );
