@@ -42,7 +42,7 @@ export default function Works() {
             key={project.nameproject}
           >
             <motion.div
-              className="w-[350px] h-[250px] rounded-xl ml-3 mt-3 flex items-center relative overflow-hidden justify-center hover:cursor-pointer i"
+              className="w-87.5 h-62.5 rounded-xl ml-3 mt-3 flex items-center relative overflow-hidden justify-center hover:cursor-pointer i"
               onClick={() => setOpenImage(project.image)}
               key={index}
             >
