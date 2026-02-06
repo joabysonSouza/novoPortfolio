@@ -1,10 +1,24 @@
-import Scene from "./components/Computer";
-import NavBar from "./components/NavBar";
+
+"use client"
 import About from "./components/About";
 import Works from "./components/Works";
 import Contact from "./components/Contact";
+import dynamic from "next/dynamic";
+import LoadingSpinner from "./components/Spinner";
+
+
+
+const SceneDynamic = dynamic(() => import("./components/Computer"), {
+  ssr: false,
+  loading: () => <LoadingSpinner />,
+});
+
+
 
 const Home = () => {
+
+
+  
   return (
     <>
       <div className="w-96 m-6 text-center h-auto flex flex-col  md:w-full md:flex-row md:items-center md:h-screen  ">
@@ -19,7 +33,7 @@ const Home = () => {
           </p>
         </div>
 
-        <Scene />
+        <SceneDynamic/>
       </div>
       
         <About/>
