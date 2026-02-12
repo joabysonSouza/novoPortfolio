@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="pt-br">
      <body className={`${PoppinsSans.variable} ${anton.variable} antialiased`}>
 
-          <NavBar/>
+       
         {children}
       </body>
     </html>
