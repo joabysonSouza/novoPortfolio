@@ -4,13 +4,15 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Loader } from "../hooks/Loader";
 
-
 const Computer = memo(({ scale }: { scale: number }) => {
   const { scene } = useGLTF("/image/Teste.glb");
 
-const position = useMemo(()=> [0, -1, 0] as [number , number , number] ,[])
+  const position = useMemo(() => [0, -1, 0] as [number, number, number], []);
 
-const rotation = useMemo(()=> [0, Math.PI, 0] as [number , number , number] ,[])
+  const rotation = useMemo(
+    () => [0, Math.PI, 0] as [number, number, number],
+    [],
+  );
 
   return (
     <group scale={scale} position={position} rotation={rotation}>
@@ -19,9 +21,7 @@ const rotation = useMemo(()=> [0, Math.PI, 0] as [number , number , number] ,[])
   );
 });
 
-
-
- useGLTF.preload("/image/Teste.glb");
+useGLTF.preload("/image/Computer.glb");
 
 export default function Scene() {
   const [scale, setScale] = useState(0.75);
@@ -30,9 +30,11 @@ export default function Scene() {
     const tablet = window.matchMedia("(max-width: 1023px)");
 
     const updateScale = () => {
-      if (mobile.matches) setScale(0.6);
-      else if (tablet.matches) setScale(0.7);
-      else setScale(0.8);
+      if (mobile.matches) {
+        setScale(0.8);
+      } else {
+        setScale(0.9);
+      }
     };
 
     updateScale();
@@ -45,20 +47,16 @@ export default function Scene() {
     };
   }, []);
 
-
   return (
     <div className=" relative w-full h-62.5 pointer-events-auto cursor-pointer md:h-full ">
-      
       <Canvas
-       frameloop="demand"
+        frameloop="demand"
         camera={{ position: [-8, 2, 4], fov: 50 }}
         style={{ touchAction: "none" }}
-
       >
-      
         <ambientLight intensity={0.5} />
         <directionalLight position={[3, 3, 3]} />
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Computer scale={scale} />
         </Suspense>
         <OrbitControls
