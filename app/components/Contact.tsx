@@ -1,7 +1,7 @@
 "use client";
-import React, { use, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Earth from "./Earth";
-import StarsBackground from "./StarsBackground";
+import { Element } from "react-scroll";
 
 export default function Contact() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -51,6 +51,7 @@ export default function Contact() {
 
       <div className="w-full justify-center flex items-center">
         <div className=" w-96 mx-20 bg- rounded-xl">
+          <Element name="Contatos"> 
           <form onSubmit={handleSubmitForm} className="w-full p-2.5 rounded-xl">
             <label htmlFor="" className="flex flex-col">
               <span className="text-white text-xl font-semibold">Nome :</span>
@@ -99,11 +100,13 @@ export default function Contact() {
             >
               {loading ? "Enviando" : "Enviar"}
             </button>
-          <p className="w-full text-2xl text-green-400 rounded-2xl p-2.5">{success && "Email enviado com Sucesso"}</p>
+          <p className="w-full text-2xl text-green-400 rounded-2xl p-2.5">{success && "Email enviado com Sucesso!!"}</p>
 
           </form>
+           </Element>
         </div>
       </div>
+     
     </div>
   );
 }
