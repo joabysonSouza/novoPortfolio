@@ -2,7 +2,11 @@
 import React, { useEffect, useState } from "react";
 import navLinks from "../constants/navLinks";
 import { CiMenuFries } from "react-icons/ci";
-import Link from "next/link";
+import {Link} from "react-scroll";
+
+
+
+
 
 const NavBar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -37,7 +41,7 @@ const NavBar = () => {
       ${showNav ? "translate-y-0" : "-translate-y-full"}`}
     >
       <nav className="flex relative">
-        <Link className="w-full flex gap-4 items-center text-3xl" href="/">
+        <Link  to="Inicio" smooth = { true } duration = {500}  className="w-full flex gap-4 items-center text-3xl" href="/">
           <span className="text-xl font-bold text-red-500">
             Joabyson | Develop
           </span>
@@ -55,13 +59,13 @@ const NavBar = () => {
         {/* Mobile menu */}
         {toggleMenu && (
           <div
-            className="w-32 p-5 gap-4 absolute right-10 top-24 rounded-2xl flex flex-col bg-gray-900 md:hidden"
+            className="w-32 p-5 gap-4 absolute -right-1 top-24 rounded-2xl flex flex-col bg-gray-900 md:hidden"
             onClick={() => setToggleMenu(false)}
           >
             {navLinks.map((link) => (
-              <a key={link.id} href={link.href}>
+              <Link key={link.key} to={link.to} smooth = { true } duration = {500} onClick={() => setToggleMenu(false)} >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         )}
@@ -69,9 +73,9 @@ const NavBar = () => {
         {/* Desktop menu */}
         <div className="hidden md:flex w-full font-bold justify-between items-center">
           {navLinks.map((link) => (
-            <a key={link.id} href={link.href}>
+            <Link key={link.key}  to={link.to} smooth = { true } duration = {500}  >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </nav>

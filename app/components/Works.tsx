@@ -5,6 +5,7 @@ import fadeIn from "../constants/animation";
 import  projects  from "../constants/projects";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
+import {Element} from "react-scroll"
 
 
 export default function Works() {
@@ -12,11 +13,14 @@ export default function Works() {
 
   return (
     <div className="w-full  min-h-auto mb-8 bg-Bgblack ">
+       <Element name="Projetos"> 
       <p className="text-2xl p-6">Meus Trabalhos</p>
+     
       <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
         {" "}
         Projetos.{" "}
       </h2>
+        </Element> 
 
       <p className=" text-wihte mx-8">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a dicta
@@ -108,6 +112,7 @@ export default function Works() {
           </motion.div>
         </motion.div>
       )}
+   
     </div>
   );
 }
