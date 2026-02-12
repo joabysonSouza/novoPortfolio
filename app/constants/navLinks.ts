@@ -1,8 +1,10 @@
 const navLinks = [
-  { label: "Trabalhos", href: "/Trabalhos", id: 1 },
-  { label: "Sobre", href: "/sobre", id: 2 },
-  { label: "Contatos", href: "/Contatos", id: 3 },
-  { label: "Feedback", href: "/Feedback", id: 4 },
+  { label: "Inicio", to: "Inicio", key: "Inicio" },
+  { label: "Stacks", to: "Stacks", key: "Stacks" },
+  { label: "Projetos", to: "Projetos", key: "Projetos" },
+  { label: "Contatos", to: "Contatos", key: "Contatos" },
 ];
 
-export default navLinks
+export default navLinks;
+
+
