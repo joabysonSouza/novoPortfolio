@@ -2,38 +2,37 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import fadeIn from "../constants/animation";
-import  projects  from "../constants/projects";
+import projects from "../constants/projects";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
-import {Element} from "react-scroll"
-
+import { Element } from "react-scroll";
 
 export default function Works() {
   const [openImage, setOpenImage] = useState<string | null>(null);
 
   return (
     <div className="w-full  min-h-auto mb-8 bg-Bgblack ">
-       <Element name="Projetos"> 
-      <p className="text-2xl p-6">Meus Trabalhos</p>
-     
-      <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
-        {" "}
-        Projetos.{" "}
-      </h2>
-        </Element> 
+      <Element name="Projetos">
+        <p className="text-2xl p-6">Meus Trabalhos</p>
 
-      <p className=" text-wihte mx-8">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque a dicta
-        exercitationem odit, et rerum, ad ullam aliquid ipsa repudiandae placeat
-        laboriosam, inventore earum. Incidunt labore blanditiis quaerat
-        cupiditate itaque! Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Unde quasi perferendis modi atque dicta libero, eaque at nemo
-        delectus possimus fugit natus ipsum optio veritatis aut eos maxime!
-        Libero, voluptatum.
+        <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
+          {" "}
+          Projetos.{" "}
+        </h2>
+      </Element>
+
+      <p className=" text-wihte text-xl mx-4 p-4">
+        Meus projetos pessoais representam meu principal laboratório de
+        aprendizado e evolução contínua, onde aplico na prática meus
+        conhecimentos técnicos, experimento novas tecnologias, valido
+        arquiteturas, exploro soluções modernas e transformo ideias em sistemas
+        reais, funcionais e escaláveis, sempre com foco em qualidade de código,
+        boas práticas, performance, usabilidade e crescimento profissional no
+        desenvolvimento web.
       </p>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 gap-3 px-4"
+        className="grid grid-cols-1 md:grid-cols-3 m-8 gap-3 px-4"
         variants={fadeIn}
         initial="hidden"
         whileInView="show"
@@ -53,25 +52,25 @@ export default function Works() {
                 href={project.code_link}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()} 
+                onClick={(e) => e.stopPropagation()}
                 className="absolute top-3 right-3 z-10"
               >
-                <SiGithub size={50} className="text-3xl text-white bg-black/60 p-2 rounded-full hover:scale-110 transition" />
+                <SiGithub
+                  size={50}
+                  className="text-3xl text-white bg-black/60 p-2 rounded-full hover:scale-110 transition"
+                />
               </a>
               <Image
                 src={project.image}
                 alt={project.nameproject}
                 fill
-                className=" w-full h-full object-cover "
+                className="md:w-full h-full"
               />
             </motion.div>
             <div>
               <h3 className="text-3xl font-bold">{project.nameproject}</h3>
               <p className=" text-start mx-1.5">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Doloribus, provident exercitationem aliquid nobis nam
-                voluptatibus debitis consectetur, dignissimos quia esse
-                reprehenderit corporis laudantium quibusdam
+                {project.description}
               </p>
               <div className="flex flex-wrap gap-3 mt-3">
                 {project.tags.map((tag, i) => (
@@ -112,7 +111,6 @@ export default function Works() {
           </motion.div>
         </motion.div>
       )}
-   
     </div>
   );
 }

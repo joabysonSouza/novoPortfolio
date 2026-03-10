@@ -2,11 +2,7 @@
 import React, { useEffect, useState } from "react";
 import navLinks from "../constants/navLinks";
 import { CiMenuFries } from "react-icons/ci";
-import {Link} from "react-scroll";
-
-
-
-
+import { Link } from "react-scroll";
 
 const NavBar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -41,7 +37,13 @@ const NavBar = () => {
       ${showNav ? "translate-y-0" : "-translate-y-full"}`}
     >
       <nav className="flex relative">
-        <Link  to="Inicio" smooth = { true } duration = {500}  className="w-full flex gap-4 items-center text-3xl" href="/">
+        <Link
+          to="Inicio"
+          smooth={true}
+          duration={500}
+          className="w-full flex gap-4 items-center text-3xl cursor-pointer"
+          href="/"
+        >
           <span className="text-xl font-bold text-red-500">
             Joabyson | Develop
           </span>
@@ -59,11 +61,18 @@ const NavBar = () => {
         {/* Mobile menu */}
         {toggleMenu && (
           <div
-            className="w-32 p-5 gap-4 absolute -right-1 top-24 rounded-2xl flex flex-col bg-gray-900 md:hidden"
+            className="w-32 p-5 gap-4 absolute -right-1 top-24 rounded-2xl flex flex-col bg-gray-900 cursor-pointer md:hidden"
             onClick={() => setToggleMenu(false)}
           >
             {navLinks.map((link) => (
-              <Link key={link.key} to={link.to} smooth = { true } duration = {500} onClick={() => setToggleMenu(false)} >
+              <Link
+                key={link.key}
+                to={link.to}
+                smooth={true}
+                duration={500}
+                onClick={() => setToggleMenu(false)}
+                className={`${link.cursorPointer}`}
+              >
                 {link.label}
               </Link>
             ))}
@@ -71,9 +80,15 @@ const NavBar = () => {
         )}
 
         {/* Desktop menu */}
-        <div className="hidden md:flex w-full font-bold justify-between items-center">
+        <div className="hidden md:flex w-full font-bold justify-between  items-center">
           {navLinks.map((link) => (
-            <Link key={link.key}  to={link.to} smooth = { true } duration = {500}  >
+            <Link
+              key={link.key}
+              to={link.to}
+              smooth={true}
+              duration={500}
+              className={`${link.cursorPointer}`}
+            >
               {link.label}
             </Link>
           ))}

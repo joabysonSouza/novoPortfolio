@@ -36,9 +36,9 @@ const Home = () => {
           </h1>
           
 
-          <p className="">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi
-            reprehenderit repudiandae
+          <p className="p-4 text-2xl">
+            Analista e Desenvolvedor  de Sistemas   
+            FullStack 
           </p>
         </div>
       
