@@ -6,7 +6,7 @@ import Contact from "./components/Contact";
 import dynamic from "next/dynamic";
 import LoadingSpinner from "./components/Spinner";
 import NavBar from "./components/NavBar";
-import {Element, Link} from "react-scroll"
+import {Element} from "react-scroll"
 
  
 

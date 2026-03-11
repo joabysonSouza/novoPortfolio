@@ -1,12 +1,12 @@
 "use client";
 import React, { memo, Suspense, useEffect, useMemo, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF, useAnimations } from "@react-three/drei";
+import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Loader } from "../hooks/Loader";
 
 
 const Computer = memo(({ scale }: { scale: number }) => {
-  const { scene, animations } = useGLTF("/image/Computer.glb");
+  const { scene } = useGLTF("/image/Computer.glb");
 
   const position = useMemo(() => [0, -1, 0] as [number, number, number], []);
 

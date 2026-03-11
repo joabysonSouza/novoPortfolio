@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import {Poppins, Anton} from "next/font/google"
 import "./globals.css";
-import NavBar from "./components/NavBar";
+
 
 
 
