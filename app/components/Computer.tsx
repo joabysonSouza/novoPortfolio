@@ -5,7 +5,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Loader } from "../hooks/Loader";
 
 
-const Computer = memo(({ scale }: { scale: number }) => {
+const ComputerComponent = memo(({ scale }: { scale: number }) => {
   const { scene } = useGLTF("/image/Computer.glb");
 
   const position = useMemo(() => [0, -1, 0] as [number, number, number], []);
@@ -70,3 +70,5 @@ export default function Scene() {
     </div>
   );
 }
+
+const Computer = memo(ComputerComponent);
