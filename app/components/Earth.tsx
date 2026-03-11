@@ -1,9 +1,14 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas,  ThreeElements } from "@react-three/fiber";
 import { OrbitControls,  useGLTF } from "@react-three/drei";
-import { useMemo } from "react";
+import {  useMemo } from "react";
+
+
 
 export default function Earth() {
-  const PlanetModel = (props: any) => {
+
+type PlanetModelProps = Omit<ThreeElements["primitive"], "object">;
+
+  const PlanetModel = ({props}: PlanetModelProps) => {
     const { scene } = useGLTF("/image/planet_earth.glb");
 
     return <primitive object={scene} {...props} />;
