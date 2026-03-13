@@ -22,6 +22,8 @@ const ComputerComponent = memo(({ scale }: { scale: number }) => {
   );
 });
 
+ComputerComponent.displayName = "Computer";
+
 useGLTF.preload("/image/Computer.glb");
 
 export default function Scene() {
