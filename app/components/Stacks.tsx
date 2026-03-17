@@ -12,7 +12,7 @@ export default function Stacks({}) {
           Visão Geral.{" "}
         </h2>
 
-        <p className=" text-wihte text-xl mx-8">
+        <p className=" text-balance text-white text-xl mx-8">
           Essas são minhas principais stacks, utilizadas diariamente no meu
           fluxo de trabalho, nas quais possuo  experiência 
         , todas voltadas especificamente para o desenvolvimento web,

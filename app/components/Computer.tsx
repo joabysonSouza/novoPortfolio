@@ -4,7 +4,6 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Loader } from "../hooks/Loader";
 
-
 const ComputerComponent = memo(({ scale }: { scale: number }) => {
   const { scene } = useGLTF("/image/Computer.glb");
 
@@ -53,7 +52,7 @@ export default function Scene() {
   return (
     <div className=" relative w-full h-62.5 pointer-events-auto cursor-pointer md:h-full ">
       <Canvas
-        frameloop="demand"
+        frameloop="always"
         camera={{ position: [-8, 2, 4], fov: 50 }}
         style={{ touchAction: "none" }}
       >

@@ -21,7 +21,7 @@ export default function Works() {
         </h2>
       </Element>
 
-      <p className=" text-wihte text-xl mx-4 p-4">
+      <p className=" text-left text-wihte text-xl mx-4 p-4">
         Meus projetos pessoais representam meu principal laboratório de
         aprendizado e evolução contínua, onde aplico na prática meus
         conhecimentos técnicos, experimento novas tecnologias, valido
@@ -32,7 +32,7 @@ export default function Works() {
       </p>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 m-8 gap-3 px-4"
+        className="grid grid-cols-1 md:grid-cols-3 "
         variants={fadeIn}
         initial="hidden"
         whileInView="show"
@@ -40,7 +40,7 @@ export default function Works() {
       >
         {projects.map((project, index) => (
           <div
-            className="w-96 h-full justify-center bg-zinc-900  rounded-xl "
+            className="w-96 h-full  justify-center bg-zinc-900  rounded-xl "
             key={project.nameproject}
           >
             <motion.div
@@ -69,7 +69,7 @@ export default function Works() {
             </motion.div>
             <div>
               <h3 className="text-3xl font-bold">{project.nameproject}</h3>
-              <p className=" text-start mx-1.5">
+              <p className=" text-left m-2.5">
                 {project.description}
               </p>
               <div className="flex flex-wrap gap-3 mt-3">

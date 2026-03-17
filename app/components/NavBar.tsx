@@ -50,7 +50,7 @@ const NavBar = () => {
         </Link>
 
         {/* Mobile menu icon */}
-        <div className="flex justify-center items-center p-4 md:hidden">
+        <div className="flex justify-end items-center p-4 md:hidden">
           <CiMenuFries
             color="white"
             className="text-6xl cursor-pointer"
@@ -61,7 +61,7 @@ const NavBar = () => {
         {/* Mobile menu */}
         {toggleMenu && (
           <div
-            className="w-32 p-5 gap-4 absolute -right-1 top-24 rounded-2xl flex flex-col bg-gray-900 cursor-pointer md:hidden"
+            className="w-32 p-5 gap-4 absolute left-48 top-24 rounded-2xl flex flex-col bg-gray-900 cursor-pointer md:hidden"
             onClick={() => setToggleMenu(false)}
           >
             {navLinks.map((link) => (

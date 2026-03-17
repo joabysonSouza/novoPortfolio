@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full flex flex-col h-auto mb-8 bg-Bgblack overflow-hidden">
+    <div className="relative w-full flex flex-col h-full mb-8 bg-Bgblack overflow-hidden">
       <div className="absolute inset-0 z-0 pointer-events-none"></div>
 
       <p className="text-2xl p-6">Me Mande um Email!</p>
