@@ -57,7 +57,7 @@ export default function Scene() {
         style={{ touchAction: "none" }}
       >
 
-        {/* <Environment preset="studio" /> */}
+     
         <ambientLight intensity={1.2} />
         <directionalLight position={[3, 3, 3]} />
         {/* Luz principal (mais forte) */}
