@@ -56,8 +56,22 @@ export default function Scene() {
         camera={{ position: [-8, 2, 4], fov: 50 }}
         style={{ touchAction: "none" }}
       >
-        <ambientLight intensity={0.5} />
+
+        {/* <Environment preset="studio" /> */}
+        <ambientLight intensity={1.2} />
         <directionalLight position={[3, 3, 3]} />
+        {/* Luz principal (mais forte) */}
+<directionalLight
+  position={[5, 5, 5]}
+  intensity={1.0}
+/>
+
+{/* Luz de preenchimento */}
+<directionalLight
+  position={[-5, 3, 5]}
+  intensity={1}
+/>
+
         <Suspense fallback={<Loader />}>
           <Computer scale={scale} />
         </Suspense>
