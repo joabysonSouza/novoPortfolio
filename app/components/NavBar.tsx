@@ -87,7 +87,7 @@ const NavBar = () => {
               to={link.to}
               smooth={true}
               duration={500}
-              className={`${link.cursorPointer}`}
+              className={`${link.cursorPointer} border-b-4 border-b-gray-400 hover:border-red-600 transition-all duration-150`}
             >
               {link.label}
             </Link>

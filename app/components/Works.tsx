@@ -11,7 +11,7 @@ export default function Works() {
   const [openImage, setOpenImage] = useState<string | null>(null);
 
   return (
-    <div className="w-full  min-h-auto mb-8 bg-Bgblack ">
+    <div className="w-full  min-h-auto mb-5 bg-Bgblack ">
       <Element name="Projetos">
         <p className="text-2xl p-6">Meus Trabalhos</p>
 
@@ -32,7 +32,7 @@ export default function Works() {
       </p>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 "
+        className="grid grid-cols-1 md:grid-cols-3  p-3"
         variants={fadeIn}
         initial="hidden"
         whileInView="show"
@@ -40,7 +40,7 @@ export default function Works() {
       >
         {projects.map((project, index) => (
           <div
-            className="w-96 h-full  justify-center bg-zinc-900  rounded-xl "
+            className="w-96 h-full  justify-center bg-zinc-900   rounded-xl "
             key={project.nameproject}
           >
             <motion.div

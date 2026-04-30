@@ -51,4 +51,5 @@ body::before {
   inset: 0;
   background: var(--color-black-transparent);
   z-index: -1; 
+
 } 
