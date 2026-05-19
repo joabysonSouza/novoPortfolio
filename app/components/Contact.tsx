@@ -39,20 +39,24 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full flex flex-col max-h-screen  bg-Bgblack overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none"></div>
+    <div className="relative w-full h-screen flex flex-col max-h-screen  bg-Bgblack overflow-hidden">
+    
 
       <p className="text-2xl p-6">Me Mande um Email!</p>
       <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
         {" "}
         Contato.{" "}
       </h2>
-      <Earth />
 
-      <div className="w-full justify-center flex items-center">
-        <div className=" w-96 mx-20 bg- rounded-xl">
+        <div className="absolute inset-0 z-0 pointer-events-none">
+          <Earth />
+      </div>
+    
+
+      <div className="w-full h-screen mt-60 justify-center flex items-center">
+        <div className=" w-96 mx-20 rounded-xl">
           <Element name="Contatos"> 
-          <form onSubmit={handleSubmitForm} className="w-full p-2.5 rounded-xl">
+              <form onSubmit={handleSubmitForm} className="w-full p-2.5  rounded-xl">
             <label htmlFor="" className="flex flex-col">
               <span className="text-white text-xl font-semibold">Nome :</span>
 
@@ -103,6 +107,7 @@ export default function Contact() {
           <p className="w-full text-2xl text-green-400 rounded-2xl p-2.5">{success && "Email enviado com Sucesso!!"}</p>
 
           </form>
+        
            </Element>
         </div>
       </div>
