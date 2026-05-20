@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState } from "react";
 import Earth from "./Earth";
-import { Element } from "react-scroll";
+
 
 export default function Contact() {
   const nameRef = useRef<HTMLInputElement>(null);
@@ -39,7 +39,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="relative w-full h-screen flex flex-col max-h-screen  bg-Bgblack overflow-hidden">
+    <div className="relative w-full h-auto flex flex-col  bg-Bgblack ">
     
 
       <p className="text-2xl p-6">Me Mande um Email!</p>
@@ -54,9 +54,9 @@ export default function Contact() {
     
 
       <div className="w-full h-screen mt-60 justify-center flex items-center">
-        <div className=" w-96 mx-20 rounded-xl">
-          <Element name="Contatos"> 
-              <form onSubmit={handleSubmitForm} className="w-full p-2.5  rounded-xl">
+        <div className=" w-96 h-full mx-20 rounded-xl">
+          <section id="Contatos"> 
+              <form onSubmit={handleSubmitForm} className="w-full  p-2.5  rounded-xl">
             <label htmlFor="" className="flex flex-col">
               <span className="text-white text-xl font-semibold">Nome :</span>
 
@@ -108,7 +108,7 @@ export default function Contact() {
 
           </form>
         
-           </Element>
+           </section>
         </div>
       </div>
      

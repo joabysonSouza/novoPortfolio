@@ -37,17 +37,16 @@ const NavBar = () => {
       ${showNav ? "translate-y-0" : "-translate-y-full"}`}
     >
       <nav className="flex relative">
-        <Link
-          to="Inicio"
-          smooth={true}
-          duration={500}
+        <a href="Inicio"
+          
+        
           className="w-full flex gap-4 items-center text-3xl cursor-pointer"
-          href="/"
+         
         >
           <span className="text-xl font-bold text-red-500">
             Joabyson | Develop
           </span>
-        </Link>
+        </a>
 
         {/* Mobile menu icon */}
         <div className="flex justify-end items-center p-4 md:hidden">
@@ -65,16 +64,14 @@ const NavBar = () => {
             onClick={() => setToggleMenu(false)}
           >
             {navLinks.map((link) => (
-              <Link
+              <a 
+              href={`#${link.to}`}
                 key={link.key}
-                to={link.to}
-                smooth={true}
-                duration={500}
                 onClick={() => setToggleMenu(false)}
                 className={`${link.cursorPointer}`}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
         )}

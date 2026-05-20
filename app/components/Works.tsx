@@ -5,21 +5,21 @@ import fadeIn from "../constants/animation";
 import projects from "../constants/projects";
 import Image from "next/image";
 import { SiGithub } from "react-icons/si";
-import { Element } from "react-scroll";
+
 
 export default function Works() {
   const [openImage, setOpenImage] = useState<string | null>(null);
 
   return (
     <div className="w-full  min-h-auto mb-5 bg-Bgblack ">
-      <Element name="Projetos">
+      <section id="Projetos">
         <p className="text-2xl p-6">Meus Trabalhos</p>
 
         <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
           {" "}
           Projetos.{" "}
         </h2>
-      </Element>
+      </section>
 
       <p className=" text-left text-wihte text-xl mx-4 p-4">
         Meus projetos pessoais representam meu principal laboratório de
@@ -100,7 +100,7 @@ export default function Works() {
             className="relative w-[90vw] h-[90vh]"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            onClick={(e) => e.stopPropagation()} // evita fechar ao clicar na imagem
+            onClick={(e) => e.stopPropagation()} 
           >
             <Image
               src={openImage}
