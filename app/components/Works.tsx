@@ -100,7 +100,7 @@ export default function Works() {
             className="relative w-[90vw] h-[90vh]"
             initial={{ scale: 0.8 }}
             animate={{ scale: 1 }}
-            onClick={(e) => e.stopPropagation()} // evita fechar ao clicar na imagem
+            onClick={(e) => e.stopPropagation()} 
           >
             <Image
               src={openImage}

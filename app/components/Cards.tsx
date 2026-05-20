@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import  skills  from "../constants/skills"; // importa a constante
+import  skills  from "../constants/skills"; 
 
 export default function Cards() {
 
@@ -9,14 +9,14 @@ export default function Cards() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // intervalo de 0.2s entre cada card
+        staggerChildren: 0.2, 
       },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, x: -50 }, // começa invisível, deslocado à esquerda
-    show: { opacity: 1, x: 0 }, // anima para a posição original
+    hidden: { opacity: 0, x: -50 }, 
+    show: { opacity: 1, x: 0 },
   };
   return (
     <motion.div
@@ -35,10 +35,10 @@ export default function Cards() {
           whileTap={{ scale: 0.95, rotate: -2 }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
         >
-          {/* Ícone */}
+     
           <skill.icon className={`text-5xl ${skill.color} mb-2`} />
 
-          {/* Título */}
+      
           <span className="text-lg font-semibold">{skill.title}</span>
         </motion.div>
       ))}
