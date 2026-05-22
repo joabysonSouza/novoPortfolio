@@ -55,7 +55,7 @@ export default function Contact() {
 
       <div className="w-full h-screen mt-60 justify-center flex items-center">
         <div className=" w-96 h-full mx-20 rounded-xl">
-          <section id="Contatos"> 
+      
               <form onSubmit={handleSubmitForm} className="w-full  p-2.5  rounded-xl">
             <label htmlFor="" className="flex flex-col">
               <span className="text-white text-xl font-semibold">Nome :</span>
@@ -107,8 +107,7 @@ export default function Contact() {
           <p className="w-full text-2xl text-green-400 rounded-2xl p-2.5">{success && "Email enviado com Sucesso!!"}</p>
 
           </form>
-        
-           </section>
+     
         </div>
       </div>
      

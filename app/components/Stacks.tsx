@@ -5,7 +5,7 @@ import Cards from "./Cards";
 export default function Stacks({}) {
   return (
     <div className="w-full  h-auto mr-8 bg-Bgblack mb-4">
-      <section id="Stacks">
+    
         <p className="text-2xl p-6">Introdução</p>
         <h2 className=" p-10 font-anton  text-white text-3xl md:text-7xl">
           {" "}
@@ -21,7 +21,7 @@ export default function Stacks({}) {
         </p>
 
         <Cards />
-      </section>
+      
     </div>
   );
 }

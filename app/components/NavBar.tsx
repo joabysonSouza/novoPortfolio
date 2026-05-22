@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import navLinks from "../constants/navLinks";
 import { CiMenuFries } from "react-icons/ci";
-import { Link } from "react-scroll";
+
 
 const NavBar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
@@ -37,12 +37,8 @@ const NavBar = () => {
       ${showNav ? "translate-y-0" : "-translate-y-full"}`}
     >
       <nav className="flex relative">
-        <a href="Inicio"
-          
-        
-          className="w-full flex gap-4 items-center text-3xl cursor-pointer"
-         
-        >
+        <a className="w-full flex gap-4 items-center text-3xl cursor-pointer"
+        href="#Inicio">
           <span className="text-xl font-bold text-red-500">
             Joabyson | Develop
           </span>
@@ -64,8 +60,8 @@ const NavBar = () => {
             onClick={() => setToggleMenu(false)}
           >
             {navLinks.map((link) => (
-              <a 
-              href={`#${link.to}`}
+              <a
+                href={`#${link.to}`}
                 key={link.key}
                 onClick={() => setToggleMenu(false)}
                 className={`${link.cursorPointer}`}
@@ -79,15 +75,13 @@ const NavBar = () => {
         {/* Desktop menu */}
         <div className="hidden md:flex w-full font-bold justify-between  items-center">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.key}
-              to={link.to}
-              smooth={true}
-              duration={500}
+              href={`#${link.to}`}
               className={`${link.cursorPointer} border-b-4 border-b-gray-400 hover:border-red-600 transition-all duration-150`}
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </div>
       </nav>

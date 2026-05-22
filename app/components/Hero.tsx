@@ -10,7 +10,7 @@ const SceneDynamic = dynamic(() => import("./Computer"), {
 
 export default function Hero() {
   return (
-    <div className="w-96 m-6 text-center h-auto bg-black-transparent flex flex-col md:w-full md:flex-row md:items-center md:h-screen">
+    <div className="w-96 m-6 text-center h-auto bg-black-transparent flex flex-col md:w-full md:flex-row md:items-center md:h-screen" >
       <div>
         <h1 className="font-anton mt-40 text-white text-3xl md:text-7xl">
           Olá eu sou <span className="text-red-600">Joabyson</span>
