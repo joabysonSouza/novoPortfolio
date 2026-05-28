@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Portfólio
 
-## Getting Started
+Um portfólio moderno desenvolvido com Next.js, React 19 e Tailwind CSS, com animações utilizando Framer Motion e integração para envio de emails utilizando Resend.
 
-First, run the development server:
+📸 Preview
 
-```bash
+
+![Preview do Projeto](./public/1preview.png)
+![Preview do Projeto](./public/2preview.png)
+![Preview do Projeto](./public/3preview.png)
+![Preview do Projeto](./public/4preview.png)
+
+🛠️ Tecnologias Utilizadas
+
+- ⚛️ React 19  
+- ▲ Next.js 15  
+- 🎨 Tailwind CSS 4  
+- ✨ Framer Motion  
+- 📩 Resend  
+- 🎯 TypeScript  
+- 🎭 React Icons  
+- 🧩 React Three Drei
+
+⚙️ Instalação
+
+Clone o repositório:
+
+git clone https://github.com/joabysonSouza/portfolio-joabyson.git
+
+Acesse a pasta do projeto:
+
+cd portfolio
+
+Instale as dependências:
+
+npm install
+▶️ Executando o Projeto
+Ambiente de desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto estará disponível em:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3000
+🏗️ Build de Produção
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Gerar build:
 
-## Learn More
+npm run build
 
-To learn more about Next.js, take a look at the following resources:
+Executar em produção:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+npm start
+📩 Variáveis de Ambiente
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Crie um arquivo .env.local na raiz do projeto:
 
-## Deploy on Vercel
+RESEND_API_KEY=sua_chave_aqui
+✨ Funcionalidades
+📱 Layout responsivo
+🎞️ Animações suaves
+📬 Formulário de contato
+⚡ Alta performance com Next.js
+🎨 Interface moderna
+🌙 Fácil personalização
+📦 Dependências Principais
+Dependência Função
+next Framework React
+react Biblioteca principal
+tailwindcss Estilização
+framer-motion Animações
+resend Envio de emails
+react-icons Ícones
+@react-three/drei Recursos 3D
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+👨‍💻 Autor
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Desenvolvido por Joabyson Souza 🚀
